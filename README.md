@@ -3,6 +3,11 @@ gitlog-gradle-plugin
 
 Plugin to generate a simple log of changes based on tags
 
+Sample
+====================
+[HTML sample](https://raw.github.com/Malinskiy/gitlog-gradle-plugin/master/sample/gitlog.html)
+[Markdown sample](https://raw.github.com/Malinskiy/gitlog-gradle-plugin/master/sample/gitlog.md)
+
 Usage
 ====================
 ```groovy
@@ -10,9 +15,12 @@ buildscript {
     repositories {
         maven { url 'http://nexus.malinskiy.com/content/groups/public/' }
     }
+    dependencies {
+        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.2'
+    }
 }
 
-apply plugin 'gitlog'
+apply plugin: 'gitlog'
 ```
 
 ```bash

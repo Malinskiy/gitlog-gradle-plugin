@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        maven { url 'http://nexus.malinskiy.com/content/groups/public/' }
+    }
+    dependencies {
+        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.2'
+    }
+}
+
 apply plugin: 'groovy'
 apply plugin: 'maven'
+apply plugin: 'gitlog'
 
 repositories {
     mavenCentral()
@@ -30,7 +40,7 @@ uploadArchives {
             }
             pom.groupId = 'com.malinskiy'
             pom.artifactId = 'gitlog-gradle-plugin'
-            pom.version = '0.0.1'
+            pom.version = '0.0.2'
         }
     }
 }
