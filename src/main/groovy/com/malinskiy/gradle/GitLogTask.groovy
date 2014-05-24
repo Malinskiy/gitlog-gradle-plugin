@@ -48,7 +48,10 @@ class GitLogTask extends DefaultTask {
 
     @TaskAction
     def generateGitLog() {
-        def gitlog = new File('gitlog.md')
+        File outputDir = new File(project.buildDir, "gitlog")
+        outputDir.mkdirs()
+
+        def gitlog = new File(outputDir, 'gitlog.md')
         gitlog.delete()
         def versions = "Latest changes"
 
@@ -82,7 +85,7 @@ class GitLogTask extends DefaultTask {
         def data
         while(tryAgain == true) {
             try {
-                data = [gitlog: pdp.markdownToHtml(new File("gitlog.md").text), application: project.name, versions: pdp.markdownToHtml(versions)]
+                data = [gitlog: pdp.markdownToHtml(new File(outputDir, "gitlog.md").text), application: project.name, versions: pdp.markdownToHtml(versions)]
                 tryAgain = false
             } catch (all) {
                 //This code sometimes timeouts
@@ -91,7 +94,7 @@ class GitLogTask extends DefaultTask {
         }
 
         def result = template.make(data)
-        new File('gitlog.html').withWriter { w ->
+        new File(outputDir, 'gitlog.html').withWriter { w ->
             w.write(result)
         }
     }

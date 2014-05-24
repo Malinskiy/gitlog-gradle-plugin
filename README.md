@@ -16,7 +16,7 @@ buildscript {
         maven { url 'http://nexus.malinskiy.com/content/groups/public/' }
     }
     dependencies {
-        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.2'
+        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.4'
     }
 }
 
@@ -27,7 +27,7 @@ apply plugin: 'gitlog'
 ./gradlew generateGitLog
 ```
 
-Result is gitlog.html and gitlog.md files
+You can find gitlog.html and gitlog.md files under build/gitlog directory
 
 Prerequisites
 ====================
