@@ -3,7 +3,7 @@ buildscript {
         maven { url 'http://nexus.malinskiy.com/content/groups/public/' }
     }
     dependencies {
-        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.2'
+        classpath 'com.malinskiy:gitlog-gradle-plugin:0.0.3'
     }
 }
 
@@ -40,7 +40,7 @@ uploadArchives {
             }
             pom.groupId = 'com.malinskiy'
             pom.artifactId = 'gitlog-gradle-plugin'
-            pom.version = '0.0.2'
+            pom.version = '0.0.3'
         }
     }
 }
